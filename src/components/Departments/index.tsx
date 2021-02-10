@@ -1,12 +1,10 @@
 import React from 'react';
 import { getDepartments } from '../../services/api';
+import { useLoading } from '../../hooks/loading';
 
-interface DepartmentsProps {
-    showLoading(message: string): void;
-    hideLoading(): void;
-}
+const Departments: React.FC = () => {
 
-const Departments: React.FC<DepartmentsProps> = ( { showLoading, hideLoading }) => {
+    const {showLoading, hideLoading} = useLoading();
     
     const handleGetDepartments = async () => {
         showLoading('Carregando Departamantos');

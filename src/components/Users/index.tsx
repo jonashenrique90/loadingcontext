@@ -1,12 +1,9 @@
 import React from 'react';
 import { getUsers } from '../../services/api';
+import { useLoading } from '../../hooks/loading';
 
-interface UsersProps {
-    showLoading(message: string): void;
-    hideLoading(): void;
-}
-
-const Users: React.FC<UsersProps> = ( { showLoading, hideLoading }) => {
+const Users: React.FC = () => {
+    const { showLoading, hideLoading } = useLoading();
 
     const handleGetUsers = async () => {
         showLoading('Carregando usuários')
